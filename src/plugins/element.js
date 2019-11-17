@@ -2,39 +2,39 @@ import Vue from 'vue'
 import { Button } from 'element-ui'
 
 // 按需导入
-import { 
-    Form, 
-    FormItem, 
-    Input,
-    Message,
-    Container,
-    Header,
-    Aside,
-    Main,
-    Menu,
-    Submenu,
-    MenuItem,
-    Breadcrumb,
-    BreadcrumbItem,
-    Card,
-    Row,
-    Col,
-    Table,
-    TableColumn,
-    Switch,
-    Tooltip,
-    Pagination,
-    Dialog,
-    MessageBox,
-    Tag,
-    Tree,
-    Select,
-    Option
-
+import {
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Container,
+  Header,
+  Aside,
+  Main,
+  Menu,
+  Submenu,
+  MenuItem,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
+  Row,
+  Col,
+  Table,
+  TableColumn,
+  Switch,
+  Tooltip,
+  Pagination,
+  Dialog,
+  MessageBox,
+  Tag,
+  Tree,
+  Select,
+  Option,
+  Cascader,
 
 } from 'element-ui'
 
-//配置全局
+// 配置全局
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -61,7 +61,9 @@ Vue.use(Tag)
 Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Cascader)
 
-//全局挂载
+
+// 全局挂载
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message

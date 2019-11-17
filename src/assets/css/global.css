@@ -17,3 +17,10 @@ html,body,#app {
     margin-top: 20px;
   
 }
+.el-cascader-panel {
+    height: 240px;
+}
+.el-pagination {
+    margin-top: 20px;
+}
+

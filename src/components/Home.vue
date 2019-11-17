@@ -45,60 +45,60 @@
       </el-main>
     </el-container>
   </el-container>
-</template> 
+</template>
 <script>
 export default {
 
-  data:function(){
+  data: function () {
     return {
-      //菜单栏数据列表
-      menulist:[],
-      //字体图标类名和id对应
-      iconsObj:{
-        '125':"iconfont icon-users",
-        '103':"iconfont icon-tijikongjian",
-        '101':"iconfont icon-shangpin",
-        '102':"iconfont icon-danju",
-        '145':"iconfont icon-baobiao"
+      // 菜单栏数据列表
+      menulist: [],
+      // 字体图标类名和id对应
+      iconsObj: {
+        '125': 'iconfont icon-users',
+        '103': 'iconfont icon-tijikongjian',
+        '101': 'iconfont icon-shangpin',
+        '102': 'iconfont icon-danju',
+        '145': 'iconfont icon-baobiao'
       },
-      //是否折叠
-      isCollapse:false,
-      //被激活的链接地址
-      activePath:''
+      // 是否折叠
+      isCollapse: false,
+      // 被激活的链接地址
+      activePath: ''
     }
   },
   // created中添加函数 发送异步请求的操作
-  created:function(){
-      //实例创建完成后立即被调用,data和menthods可以使用,页面还没有渲染
-      this.getMenuList();
-      //点击的时候把当前页面链接保存在sessionstorage中
-      this.activePath = window.sessionStorage.getItem('activePath')
+  created: function () {
+    // 实例创建完成后立即被调用,data和menthods可以使用,页面还没有渲染
+    this.getMenuList()
+    // 点击的时候把当前页面链接保存在sessionstorage中
+    this.activePath = window.sessionStorage.getItem('activePath')
   },
   methods: {
-    logout() {
+    logout () {
       window.sessionStorage.clear()
       this.$router.push('/login')
     },
-    //获取所有菜单
-    async getMenuList(){
-      //数据结构把真实数据结构出来
-      const {data:res} = await this.$http.get('menus')
+    // 获取所有菜单
+    async getMenuList () {
+      // 数据结构把真实数据结构出来
+      const { data: res } = await this.$http.get('menus')
       // console.log(res.data)
-      //获取失败 提示错误信息
-      if(res.meta.status !== 200) return this.$message.error(res.meta.msg)
-      //获取成功后,把获取到的数据放在menulist数组中
-      this.menulist=res.data 
+      // 获取失败 提示错误信息
+      if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
+      // 获取成功后,把获取到的数据放在menulist数组中
+      this.menulist = res.data
     },
-    //点击按钮,切换菜单的折叠与展开
-    toggleCollapse(){
-      this.isCollapse = !this.isCollapse;
+    // 点击按钮,切换菜单的折叠与展开
+    toggleCollapse () {
+      this.isCollapse = !this.isCollapse
     },
-    //保存链接激活状态
-    saveNavState(activePath){
-      window.sessionStorage.setItem('activePath',activePath)
-      this.activePath = activePath;
-    },
-    
+    // 保存链接激活状态
+    saveNavState (activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
+      this.activePath = activePath
+    }
+
   }
 }
 </script>
