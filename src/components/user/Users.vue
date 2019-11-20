@@ -11,23 +11,12 @@
       <!-- 搜索与添加区域 -->
       <el-row :gutter="20">
         <el-col :span="8">
-          <el-input
-            placeholder="请输入内容"
-            v-model="queryInfo.query"
-            clearable
-            @clear="getUserList"
-          >
-            <el-button
-              slot="append"
-              icon="el-icon-search"
-              @click="getUserList"
-            ></el-button>
+          <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getUserList" >
+            <el-button slot="append" icon="el-icon-search" @click="getUserList" ></el-button>
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="addDialogVisible = true"
-            >添加用户</el-button
-          >
+          <el-button type="primary" @click="addDialogVisible = true" >添加用户</el-button >
         </el-col>
       </el-row>
 
@@ -42,43 +31,16 @@
           <template slot-scope="scope">
             <!-- 放一个开关 -->
             <!-- {{scope.row}} -->
-            <el-switch
-              v-model="scope.row.mg_state"
-              @change="userStateChanged(scope.row)"
-            ></el-switch>
+            <el-switch v-model="scope.row.mg_state"  @change="userStateChanged(scope.row)"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <!-- {{scope.row}} -->
-            <el-button
-              type="primary"
-              icon="el-icon-edit"
-              circle
-              size="mini"
-              @click="showEditDialog(scope.row.id)"
-            ></el-button>
-            <el-button
-              type="danger"
-              icon="el-icon-delete"
-              circle
-              size="mini"
-              @click="removeUserById(scope.row.id)"
-            ></el-button>
-            <el-tooltip
-              class="item"
-              effect="dark"
-              content="分配角色"
-              placement="top"
-            >
-              <el-button
-                type="warning"
-                icon="el-icon-setting"
-                circle
-                :enterable="false"
-                size="mini"
-                @click="setRole(scope.row)"
-              ></el-button>
+            <el-button type="primary" icon="el-icon-edit" circle size="mini" @click="showEditDialog(scope.row.id)" ></el-button>
+            <el-button type="danger" icon="el-icon-delete" circle size="mini"  @click="removeUserById(scope.row.id)"  ></el-button>
+            <el-tooltip class="item" effect="dark" content="分配角色" placement="top" >
+              <el-button type="warning" icon="el-icon-setting" circle :enterable="false" size="mini" @click="setRole(scope.row)" ></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -95,18 +57,8 @@
       ></el-pagination>
     </el-card>
     <!-- 添加用户 -->
-    <el-dialog
-      title="添加用户"
-      :visible.sync="addDialogVisible"
-      width="30%"
-      @close="addDialogClosed"
-    >
-      <el-form
-        label-width="70px"
-        :rules="addFormRules"
-        ref="addFormRef"
-        :model="addForm"
-      >
+    <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="30%"  @close="addDialogClosed" >
+      <el-form label-width="70px" :rules="addFormRules" ref="addFormRef"  :model="addForm" >
         <!-- 表单信息  用户名,密码, 邮箱,手机 -->
         <el-form-item label="用户名" prop="username">
           <el-input v-model="addForm.username"></el-input>
@@ -128,18 +80,8 @@
     </el-dialog>
 
     <!-- 修改用户信息 -->
-    <el-dialog
-      title="修改用户"
-      :visible.sync="editDialogVisible"
-      width="30%"
-      @close="editDialogClosed"
-    >
-      <el-form
-        label-width="70px"
-        :rules="editFormRules"
-        ref="editFormRef"
-        :model="editForm"
-      >
+    <el-dialog title="修改用户" :visible.sync="editDialogVisible" width="30%" @close="editDialogClosed" >
+      <el-form label-width="70px" :rules="editFormRules" ref="editFormRef" :model="editForm" >
         <!-- 表单信息  用户名,密码, 邮箱,手机 -->
         <el-form-item label="用户名" prop="username">
           <el-input v-model="editForm.username" disabled></el-input>
@@ -167,12 +109,7 @@
           <template>
             <!-- 把选中的那一个id值通过:value传给v-model在传给selectRoleId -->
             <el-select v-model="selectedRoleId" placeholder="请选择">
-              <el-option
-                v-for="item in roleslist"
-                :key="item.id"
-                :label="item.roleName"
-                :value="item.id"
-              >
+              <el-option v-for="item in roleslist":key="item.id" :label="item.roleName" :value="item.id" >
               </el-option>
             </el-select>
           </template>

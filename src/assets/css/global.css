@@ -24,3 +24,6 @@ html,body,#app {
     margin-top: 20px;
 }
 
+.ql-editor {
+    min-height: 300px;
+  }
