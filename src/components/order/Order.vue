@@ -167,8 +167,7 @@ export default {
         addressDialogClosed(){
              this.$refs.addressFormRef.resetFields()
         }
-
-    }
+  }
 }
 
 </script>
@@ -176,5 +175,4 @@ export default {
 <style lang='less' scoped>
 @import '../../plugins/timeline/timeline.css';
 @import '../../plugins/timeline-item/timeline-item.css';
-
 </style>
