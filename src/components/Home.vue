@@ -3,7 +3,6 @@
     <!-- 头部区域 -->
     <el-header>
       <div>
-        <img src="../assets/heima.png" alt />
         <span>电商后台管理系统</span>
       </div>
       <!-- 退出登录 -->
@@ -88,6 +87,7 @@ export default {
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       // 获取成功后,把获取到的数据放在menulist数组中
       this.menulist = res.data
+      console.log(res.data)
     },
     // 点击按钮,切换菜单的折叠与展开
     toggleCollapse () {
